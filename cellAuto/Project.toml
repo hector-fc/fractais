@@ -1,0 +1,7 @@
+name = "cellAuto"
+uuid = "5f4dd620-5de5-4186-88ec-bb68111f5d95"
+authors = ["hector-fc <fchect@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
