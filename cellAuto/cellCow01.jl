@@ -49,7 +49,7 @@ function nextEv2D(A::Matrix{Int})::Matrix{Int}
 end
 
 function numSt(num::Int) 
-  rng = MersenneTwister(1234)
+  rng = MersenneTwister(17)
   ncol = 200
   nrow = ncol
   ev2D = zeros(Int,nrow,ncol)
@@ -65,7 +65,22 @@ function numSt(num::Int)
 end 
 
 #mosaic( 
-heatmap(numSt(1))
+#heatmap(numSt(1))
+
+iter = Observable(1)
+data = @lift numSt($iter)
+
+colormap_rgb = [RGB(0,0,0), RGB(1,0.8431,0)];
+
+fig=heatmap(data,
+    axis=(title=@lift("k=$($iter)"),
+    ),colormap = colormap_rgb);
+    
+record(fig,"cow01.mp4",1:1000;
+framerate = 5) do i
+  iter[] = i
+end
+
 
 #Gray.(numSt(2)), 
 #Gray.(numSt(100)), 
