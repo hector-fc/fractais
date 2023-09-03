@@ -24,6 +24,10 @@ function julia(z,maxiter)
   return 1 - exp(-abs(z))
 end
 
+# this is a comment from 
+#
+
+
 function  fractal_set(xmin=-2, xmax = 2,
                       ymin=-2, ymax = 2,
                       width = 300,height=300,
